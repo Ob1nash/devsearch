@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
+# from .forms import ProjectForm, ReviewForm
 from django.http import HttpResponse
+from .models import Project, Tag
 
 projectList = [
     {
