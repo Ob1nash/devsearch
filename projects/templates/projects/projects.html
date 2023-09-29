@@ -10,7 +10,7 @@
 <p>The number is 10</p>
 {% else %}
 <p>The number is less than 10</p>
-{%  endif %}
+{% endif %}
 
 
 <hr>
@@ -19,12 +19,32 @@
     projects
 </h1>
 
-<ul>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Projects</th>
+        <th>Positive Votes</th>
+        <th>Votes</th>
+        <th></th>
+    </tr>
+    {% for project in projects %}
+    <tr>
+        <td>{{project.id}} </td>
+        <td>{{project.title}} </td>
+        <td> {{project.vote_ratio}} </td>
+        <td> {{project.vote_total}} </td>
+        <td> {{project.created}} </td>
+        <td><a href="/project/{{project.id}}">View</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!-- <ul>
     {% for project in projects %}
     <li>
         Title: <a href="/project/{{project.id}}">{{project.title}}</a> --- {{project.description}}
     </li>
     {% endfor %}
-</ul>
+</ul> -->
 
 {% endblock content %}
