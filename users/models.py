@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import uuid 
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save, post_delete
 # Create your models here.
 
 
@@ -45,4 +45,8 @@ def profileUpdated(sender, instance, created, **kwargs):
     print('Instance:', instance)
     print('CREATED:',created)
 
+def deleteUser(sender, instance, **kwargs):
+    print('Deleting user...')
+
 post_save.connect(profileUpdated, sender=Profile)
+post_delete.connect(deleteUser, sender=Profile)
