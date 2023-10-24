@@ -8,7 +8,7 @@ from .models import Profile
  
 #@receiver (post_save, sender= Profile)  
 def createProfile(sender, instance, created, **kwargs):
-    print('Profile signal triggered')
+    print('Profile signal triggered') 
     if created:
         user = instance
         profile =  Profile.objects.create(
