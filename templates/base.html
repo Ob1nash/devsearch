@@ -31,6 +31,14 @@
     </ul>
     {% endif %}
 
+
+    {% if messages %}
+     
+{% for message in messages %}
+
+{% endfor %}
+
+    {% endif %}
     {% block content %}
 
     {% endblock content %}
